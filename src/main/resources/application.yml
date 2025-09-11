@@ -1,0 +1,51 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+  config:
+    import: "aws-parameterstore:/config/dawn-cs-study/"
+
+
+  ai:
+    openai:
+      api-key: ${open-ai-api-key}
+      embedding:
+        options:
+          model: text-embedding-3-large  # or text-embedding-3-small (1536??)
+
+  datasource:
+    url: ${db_url}
+    username: ${db_user}
+    password: ${db_password}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate.format_sql: true
+
+  sql:
+    init:
+      mode: never
+
+  cloud:
+    aws:
+      region:
+        static: ap-northeast-2
+      s3:
+        bucket: ${bucket-name}
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
