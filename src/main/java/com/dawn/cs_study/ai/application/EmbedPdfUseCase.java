@@ -1,7 +1,6 @@
 package com.dawn.cs_study.ai.application;
 
 import com.dawn.cs_study.ai.application.port.VectorCommandPort;
-import com.dawn.cs_study.ai.domain.support.PdfValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.document.Document;
@@ -14,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j

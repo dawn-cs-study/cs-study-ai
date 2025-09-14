@@ -1,9 +1,9 @@
 package com.dawn.cs_study.ai.application;
 
-import com.dawn.cs_study.ai.domain.DocumentSearchResult;
-import com.dawn.cs_study.ai.domain.QueryResult;
 import com.dawn.cs_study.ai.application.port.QueryAiPort;
 import com.dawn.cs_study.ai.application.port.VectorQueryPort;
+import com.dawn.cs_study.ai.domain.DocumentSearchResult;
+import com.dawn.cs_study.ai.domain.QueryResult;
 import com.dawn.cs_study.ai.domain.support.PromptGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,6 @@
 package com.dawn.cs_study.ai.infrastructure.persistence.vector;
 
 import com.dawn.cs_study.ai.application.port.VectorQueryPort;
-import com.dawn.cs_study.ai.domain.DocumentSearchResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;

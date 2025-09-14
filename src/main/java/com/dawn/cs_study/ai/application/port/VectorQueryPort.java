@@ -1,7 +1,6 @@
 package com.dawn.cs_study.ai.application.port;
 
 import org.springframework.ai.document.Document;
-import org.springframework.ai.vectorstore.SearchRequest;
 
 import java.util.List;
 

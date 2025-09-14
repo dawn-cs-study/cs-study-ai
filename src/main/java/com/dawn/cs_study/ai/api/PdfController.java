@@ -4,8 +4,6 @@ import com.dawn.cs_study.ai.api.response.ApiResponse;
 import com.dawn.cs_study.ai.application.EmbedPdfDisUseCase;
 import com.dawn.cs_study.ai.application.EmbedPdfUseCase;
 import com.dawn.cs_study.ai.domain.DocumentUploadResult;
-import com.dawn.cs_study.ai.domain.support.PdfValidator;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
