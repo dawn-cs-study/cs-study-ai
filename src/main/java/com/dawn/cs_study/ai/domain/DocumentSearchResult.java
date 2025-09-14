@@ -4,8 +4,8 @@ import java.util.Map;
 
 public record DocumentSearchResult(String id, String content, Map<String, Object> metadata, Double score) {
 
-    public DocumentResponse toDocumentResponseDto() {
-        return new DocumentResponse(
+    public DocumentResult toDocumentResult() {
+        return new DocumentResult(
                 id, score, content, metadata
         );
     }
