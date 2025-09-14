@@ -1,0 +1,56 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+  config:
+    import: "aws-parameterstore:/config/dawn-cs-study/"
+
+
+  ai:
+    openai:
+      api-key: ${open-ai-api-key}
+      embedding:
+        options:
+          model: text-embedding-3-large  # or text-embedding-3-small (1536??)
+
+  datasource:
+    url: ${db_url}
+    username: ${db_user}
+    password: ${db_password}
+
+    hikari:
+      # === DB 커넥션풀 ===
+      maximum-pool-size: 30          # 시작값 20~40 권장 (DB max_connections 확인 필수)
+      minimum-idle: 10
+      connection-timeout: 2000       # 커넥션 못 빌리면 2초 내 Exception
+      idle-timeout: 300000           # 5분 놀면 반환
+      max-lifetime: 1700000          # 28m 20s (DB/클라우드 LB의 30m 타임아웃보다 약간 작게)
+      validation-timeout: 1000
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate.format_sql: true
+
+  sql:
+    init:
+      mode: never
+
+  cloud:
+    aws:
+      region:
+        static: ap-northeast-2
+      s3:
+        bucket: ${bucket-name}
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
