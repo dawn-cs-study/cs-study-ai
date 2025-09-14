@@ -1,5 +1,6 @@
-package com.dawn.cs_study.ai.application;
+package com.dawn.cs_study.ai.infrastructure.ai;
 
+import com.dawn.cs_study.ai.application.port.QueryAiPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.messages.Message;
@@ -11,27 +12,24 @@ import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.openai.api.OpenAiApi;
-import org.springframework.ai.vectorstore.pgvector.PgVectorStore;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Slf4j
-@Service
+@Component
 @RequiredArgsConstructor
-public class ChatService {
+public class QueryOpenAiAdapter implements QueryAiPort {
 
     private final OpenAiApi openAiApi;
 
-    private final PgVectorStore pgVectorStore;
+    @Override
+    public ChatResponse ask(String userQuery, String systemMessage) {
 
-    public ChatResponse openAiChat(String userInput, String systemMessage) {
-
-        try {
             // 메시지 구성
             List<Message> messages = List.of(
                     new SystemMessage(systemMessage),
-                    new UserMessage(userInput)
+                    new UserMessage(userQuery)
             );
 
             // 챗 옵션 설정
@@ -52,16 +50,6 @@ public class ChatService {
                     .openAiApi(openAiApi)
                     .build();
             return chatModel.call(prompt);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return null;
-        }
     }
-
-    public void dd() {
-
-
-    }
-
 
 }
