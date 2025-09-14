@@ -9,7 +9,12 @@ import java.util.Objects;
 public class PdfValidator {
 
 
-    public static void parsePdf(MultipartFile file) {
+    public static void validate(MultipartFile file) {
+
+        if (Objects.isNull(file)) {
+            log.error("비어있는 파일입니다.");
+            throw new IllegalArgumentException();
+        }
 
         String fileName = file.getOriginalFilename();
 
