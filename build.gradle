@@ -30,10 +30,16 @@ ext {
 
 dependencies {
 
+	// aws
 	implementation platform('io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0')
 	implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
 
+	// mvc
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'org.postgresql:postgresql'
 
 	// vector store
 	implementation 'org.springframework.ai:spring-ai-advisors-vector-store'
@@ -46,14 +52,15 @@ dependencies {
 	implementation 'org.springframework.ai:spring-ai-starter-model-openai'
 
 
-
-
-
-
+	// lombok
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// devtools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+
+	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
