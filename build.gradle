@@ -33,13 +33,18 @@ dependencies {
 	implementation platform('io.awspring.cloud:spring-cloud-aws-dependencies:3.4.0')
 	implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
 
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	// vector store
 	implementation 'org.springframework.ai:spring-ai-advisors-vector-store'
-	implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
-	implementation 'org.springframework.ai:spring-ai-starter-model-openai'
 	implementation 'org.springframework.ai:spring-ai-starter-vector-store-pgvector'
+
+	// spring ai pdf
+	implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
+
+	// spring ai model
+	implementation 'org.springframework.ai:spring-ai-starter-model-openai'
+
 
 
 

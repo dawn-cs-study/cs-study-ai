@@ -1,4 +1,6 @@
-package com.dawn.cs_study.ai.domain;
+package com.dawn.cs_study.ai.domain.support;
+
+import com.dawn.cs_study.ai.domain.DocumentSearchResult;
 
 import java.util.List;
 
