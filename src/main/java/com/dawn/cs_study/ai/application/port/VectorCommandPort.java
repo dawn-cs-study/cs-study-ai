@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface VectorCommandPort {
 
-    void add(List<Document> documents);
+    void embedDocuments(List<Document> documents);
 
     void delete(String id);
 

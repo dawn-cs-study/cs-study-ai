@@ -15,7 +15,7 @@ public class PgVectorCommandAdapter implements VectorCommandPort {
     private final PgVectorStore pgVectorStore;
 
     @Override
-    public void add(List<Document> documents) {
+    public void embedDocuments(List<Document> documents) {
         pgVectorStore.add(documents);
     }
 
